@@ -1,0 +1,574 @@
+/* 
+   Apple Minimalist Style CSS
+   Fonts: System Apple Fonts (SF Pro) / Inter
+*/
+
+:root {
+    --primary-color: #0066cc; /* Apple blue */
+    --apple-bg: #f5f5f7;
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --border-radius-lg: 32px;
+    --border-radius-md: 20px;
+    --transition-speed: 0.4s;
+}
+
+html {
+    background-color: var(--apple-bg);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: transparent;
+    letter-spacing: -0.015em;
+}
+
+/* Utilities */
+.tracking-tight {
+    letter-spacing: -0.04em !important;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #32ade6, #007aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.bg-light-subtle {
+    background-color: var(--apple-bg) !important;
+}
+
+.section-padding {
+    padding: 120px 0;
+}
+
+.divider {
+    height: 3px;
+    width: 40px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+.space-y-2 > li { margin-bottom: 0.8rem; }
+.space-y-3 > li { margin-bottom: 1.2rem; }
+
+/* Navbar - Glassmorphism */
+.blur-nav {
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary) !important;
+}
+
+.navbar-nav .nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+    transition: background-color 0.2s ease, color 0.2s;
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: var(--text-primary) !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Soft mesh gradient */
+    background: radial-gradient(circle at top left, rgba(0,122,255,0.03), transparent 50%),
+                radial-gradient(circle at bottom right, rgba(50,173,230,0.03), transparent 50%);
+}
+
+.display-3 {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--text-primary);
+}
+
+.hero-section p.lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+/* Profile Composition Animations */
+.glassmorphic-wrapper {
+    border-radius: 50%;
+    /* Frosted glass effect */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    /* Subtle bright edge simulating glass cut */
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    /* Glass shadow */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    padding: 12px;
+}
+
+.glassmorphic-circle {
+    border-radius: 50%;
+    border: none;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.1); opacity: 0.6; }
+}
+@keyframes floatBadge {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes floatBadgeReverse {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(8px); }
+    100% { transform: translateY(0px); }
+}
+.floating-badge {
+    animation: floatBadge 3.5s ease-in-out infinite;
+}
+.floating-badge-reverse {
+    animation: floatBadgeReverse 4s ease-in-out infinite;
+}
+
+/* Buttons (Neobrutalism) */
+.btn-primary {
+    background-color: #38b6ff;
+    color: #333;
+    border: 2px solid #333;
+    font-weight: 700;
+    box-shadow: 4px 4px 0px #333;
+    padding: 12px 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+    background-color: #ffde59;
+    color: #333;
+    border-color: #333;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #333;
+}
+.btn-outline-secondary {
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #333;
+    font-weight: 700;
+    box-shadow: 4px 4px 0px #333;
+    padding: 12px 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    color: #333;
+    border-color: #333;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #333;
+}
+
+.neo-border-bottom {
+    border-bottom: 3px solid #333;
+}
+
+/* Cards & Hover Effects */
+.card {
+    border-radius: var(--border-radius-lg) !important;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+    transition: transform var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hover-lift:hover {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+
+/* Timeline */
+/* Timeline vertical line and dots removed for single centered column layout */
+
+.date-label {
+    display: inline-block;
+    padding-top: 20px;
+    color: var(--text-secondary);
+}
+
+/* Icons box */
+.icon-box {
+    background-color: var(--apple-bg) !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* Footer */
+footer.bg-dark {
+    background-color: #333333 !important;
+}
+
+.contact-link {
+    transition: all 0.2s;
+    font-weight: 500;
+}
+.contact-link:hover {
+    opacity: 0.7;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Spotlight Effect for Cards */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: radial-gradient(
+        400px circle at var(--mouse-x, 0) var(--mouse-y, 0), 
+        rgba(0, 102, 204, 0.08),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+.spotlight-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Magnetic Buttons */
+.magnetic-btn {
+    transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.3s ease, opacity 0.2s;
+    will-change: transform;
+}
+
+/* Animación de estrellas en canvas */
+#stars-canvas { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -9999 !important; pointer-events: none; opacity: 0.6; }
+
+/* Mac Terminal Animation */
+.mac-terminal {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.mac-terminal-header {
+    background-color: #333333;
+    height: 38px;
+    border-bottom: 1px solid #333;
+}
+.mac-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.mac-btn.close-btn { background-color: #ff5f56; }
+.mac-btn.minimize-btn { background-color: #ffbd2e; }
+.mac-btn.expand-btn { background-color: #27c93f; }
+
+.terminal-text {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e5e5e5;
+}
+
+.typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid transparent;
+    width: 0;
+    vertical-align: bottom;
+}
+
+.start-typing .typing-animation {
+    animation: typing 0.8s steps(6, end) forwards, blink-caret 0.75s step-end 2;
+    border-right-color: transparent; /* ensures it hides after animation */
+}
+
+.whoami-output {
+    opacity: 0;
+}
+
+.start-typing .whoami-output {
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 1.1s;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 6ch }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #e5e5e5 }
+}
+
+@keyframes blink-black-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #333333 }
+}
+
+@keyframes blink-opacity {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Grid Section for Experience (Minimalist 3D) */
+.blueprint-section {
+    background-color: #ffffff !important;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Ensure content stays above the grid */
+.blueprint-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* 3D Moving Grid */
+.blueprint-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    z-index: 0;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 2px, transparent 2px),
+        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 240px 240px, 240px 240px, 60px 60px, 60px 60px;
+    transform: perspective(800px) rotateX(40deg) translateY(0);
+    animation: grid3DPan 12s linear infinite;
+    transform-origin: center center;
+}
+
+/* Fades into Apple background at top and bottom */
+.blueprint-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(to bottom, var(--apple-bg) 0%, rgba(255,255,255,0) 15%, rgba(255,255,255,0) 85%, var(--apple-bg) 100%);
+}
+
+@keyframes grid3DPan {
+    0% { transform: perspective(800px) rotateX(40deg) translateY(0); }
+    100% { transform: perspective(800px) rotateX(40deg) translateY(-240px); } 
+}
+
+.blueprint-section .section-title h2 {
+    color: var(--text-primary);
+    text-shadow: none;
+}
+.blueprint-section .divider {
+    display: none;
+}
+
+.blueprint-section .timeline {
+    /* Pegar toda la línea temporal al suelo con la misma perspectiva de la cuadrícula */
+    transform: perspective(800px) rotateX(40deg);
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.blueprint-section .timeline-item {
+    transition: transform 0.4s ease;
+}
+
+.blueprint-section .timeline-item:hover {
+    transform: translateZ(20px);
+}
+
+.blueprint-section .timeline::before {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.blueprint-section .timeline-dot {
+    background-color: #ffffff;
+    border-color: var(--text-primary);
+    box-shadow: none;
+}
+
+.blueprint-section .card {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    color: var(--text-primary) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+
+/* Premium Skill Tags & Neo-Brutalism */
+.neo-card {
+    background-color: #ffffff;
+    border: 2px solid #333333;
+    border-radius: 24px;
+    box-shadow: 6px 6px 0px #333333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #333333;
+}
+
+.neo-subcard {
+    background-color: #ffffff;
+    border: 2px solid #333333;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px #333333;
+    transition: transform 0.2s ease;
+}
+.neo-subcard:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #333333;
+}
+
+.neo-badge {
+    display: inline-block;
+    border: 2px solid #333333;
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333333;
+    box-shadow: 3px 3px 0px #333333;
+    transition: transform 0.2s ease;
+}
+.neo-badge:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px #333333;
+}
+
+.neo-border {
+    border: 2px solid #333333;
+}
+
+.neo-text-shadow {
+    text-shadow: 2px 2px 0px #333333;
+}
+
+.neo-bg-yellow {
+    background-color: #ffde59 !important;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid #333333;
+    padding: 8px 16px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 0px #333333;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #333333;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+}
+.skill-tag img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+.skill-tag:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #333333;
+}
+
+.blueprint-section .card:hover {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+
+.blueprint-section .card h6 {
+    color: var(--primary-color) !important; 
+    font-family: inherit;
+}
+
+.blueprint-section .card p, 
+.blueprint-section .card ul {
+    color: var(--text-secondary) !important;
+}
+
+.blueprint-section .date-label {
+    color: var(--text-secondary);
+    font-family: inherit;
+    letter-spacing: normal;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0.0deg) }
+    10% { transform: rotate(14.0deg) }
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate(0.0deg) }
+    100% { transform: rotate(0.0deg) }
+}
+
+.wave-emoji {
+    display: inline-block;
+    animation: wave-animation 2.5s infinite;
+    transform-origin: 70% 70%;
+}
