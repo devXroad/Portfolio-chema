@@ -572,3 +572,69 @@ footer.bg-dark {
     animation: wave-animation 2.5s infinite;
     transform-origin: 70% 70%;
 }
+
+/* Fix mobile zoom-out/horizontal scroll bug */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero floating badges (PC values = original design) */
+.hero-badge.neo-card {
+    z-index: 2;
+    border-radius: 20px;
+    padding: 12px 20px;
+    box-shadow: 6px 6px 0px #333333;
+    border-width: 2px;
+    white-space: nowrap;
+}
+.hero-badge-left  { bottom: 30px; left: -30px; }
+.hero-badge-right { top: 40px; right: -20px; }
+.hero-badge-text  { font-size: 1.1rem; }
+.hero-badge-icon  { font-size: 1.2rem; }
+.hero-badge-dot   { width: 14px; height: 14px; border-width: 2px !important; }
+
+@media (max-width: 768px) {
+    /* Prevent massive text from breaking viewport on small phones */
+    h1.display-3 {
+        font-size: 2.8rem !important;
+        word-wrap: break-word;
+    }
+
+    /* Terminal grows with its content on mobile so the last line is never cut */
+    .mac-terminal-body {
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* Smaller badges on mobile, sized physically (transform is used by the float animation) */
+    .hero-badge.neo-card {
+        padding: 6px 12px;
+        border-radius: 14px;
+        box-shadow: 3px 3px 0px #333333;
+    }
+    .hero-badge-left  { bottom: 16px; left: 8px; }
+    .hero-badge-right { top: 16px; right: 8px; }
+    .hero-badge-text  { font-size: 0.75rem; }
+    .hero-badge-icon  { font-size: 0.8rem; margin-right: 4px !important; }
+    .hero-badge-dot   { width: 9px; height: 9px; margin-right: 6px !important; }
+
+    /* Formación: more room for text on narrow screens */
+    #education .neo-card.p-4 { padding: 1rem !important; }
+    #education .neo-subcard { padding: 0.85rem !important; }
+    #education .neo-subcard > .rounded-circle {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 0.85rem !important;
+    }
+    #education .neo-subcard > .rounded-circle i { font-size: 1.1rem !important; }
+    #education .neo-subcard h5 { font-size: 1.05rem; }
+    #education .neo-badge { white-space: nowrap; }
+
+    /* Side animations push content off-screen on phones -> enter from below instead */
+    [data-aos="fade-left"]:not(.aos-animate),
+    [data-aos="fade-right"]:not(.aos-animate) {
+        transform: translate3d(0, 40px, 0) !important;
+    }
+}
